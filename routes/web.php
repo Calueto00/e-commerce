@@ -10,4 +10,5 @@ Route::resource('produtos',ProdutController::class);
 
 Route::get('/',[SiteController::class,'index'])->name('site.index');
 Route::get('/produto/{slug}',[SiteController::class,'details'])->name('details');
+Route::get('/categoria/{id}',[SiteController::class,'category'])->name('site.category');
 
