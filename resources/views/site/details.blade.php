@@ -8,6 +8,9 @@
         <div class="col s12 m6">
                 <h1> {{$produt->name}}</h1>
                 <p> {{$produt->description}}</p>
+                <p>Postado por {{$produt->user->firstName}} <br>
+                    Category: {{$produt->category->name}}
+                </p>
                 <button class="btn orange btn-large">Comprar</button>
         </div>
     </div>
