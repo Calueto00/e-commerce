@@ -1,5 +1,5 @@
 @extends('site.layout')
-
+@section('title','Produts')
 @section('content')
 
 
@@ -9,7 +9,7 @@
                 <div class="card">
                     <div class="card-image">
                     <img src="{{$product->image}}">
-                    <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons"><span class="material-icons">
+                    <a href="{{route('details',$product->slug)}}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons"><span class="material-icons">
                         visibility
                         </span></i></a>
                     </div>
@@ -21,9 +21,10 @@
             </div>
         @endforeach
 
+
     </div>
-    <div class="row">
-        {{$products->links()}}
+    <div class="row center">
+        {{$products->links('')}}
 
     </div>
 @endsection
