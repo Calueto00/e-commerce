@@ -12,9 +12,8 @@ class ProdutController extends Controller
      */
     public function index()
     {
-        $name = 'Paulo';
-        $idade = 23;
-        return view('site.home',compact('name','idade'));
+       $products = Produt::all();
+        return view('site.home',compact('products'));
     }
 
     /**
