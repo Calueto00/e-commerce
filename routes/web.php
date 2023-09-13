@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProdutController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\UserController;
@@ -11,4 +12,6 @@ Route::resource('produtos',ProdutController::class);
 Route::get('/',[SiteController::class,'index'])->name('site.index');
 Route::get('/produto/{slug}',[SiteController::class,'details'])->name('details');
 Route::get('/categoria/{id}',[SiteController::class,'category'])->name('site.category');
+
+Route::get('/carrinho',[CartController::class,'cartList'])->name('site.cart');
 
