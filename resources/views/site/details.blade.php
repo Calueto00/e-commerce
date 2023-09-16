@@ -12,7 +12,8 @@
                 <p>Postado por {{$produt->user->firstName}} <br>
                     Category: {{$produt->category->name}}
                 </p>
-                <button class="btn orange btn-large">Comprar</button>
+
+
         </div>
     </div>
 @endsection
