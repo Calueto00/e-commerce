@@ -18,9 +18,15 @@ class LoginController extends Controller
             ]);
         if(Auth::attempt($credencias)){
             $request->session()->regenerate(); //gera uma nova sessão e id
-            return redirect()->intended('dashboard');// faz o redirecionamento e verifica se o usuario vem de qual sessão
+            return redirect()->intended(route('admin.dashboard'));// faz o redirecionamento e verifica se o usuario vem de qual sessão
         }else{
             return redirect()->back()->with('erro','Usuario ou senha errado');
         }
+    }
+    public function logout(Request $request){
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect(route('site.index'));
     }
 }
