@@ -16,7 +16,7 @@ class LoginController extends Controller
                 'email.email'=>'Email não é valido',
                 'password.required'=>'O campo senha é obrigatório'
             ]);
-        if(Auth::attempt($credencias)){
+        if(Auth::attempt($credencias,$request->remember)){
             $request->session()->regenerate(); //gera uma nova sessão e id
             return redirect()->intended(route('admin.dashboard'));// faz o redirecionamento e verifica se o usuario vem de qual sessão
         }else{
