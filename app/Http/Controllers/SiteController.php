@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Produt;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class SiteController extends Controller
 {
@@ -17,6 +18,8 @@ class SiteController extends Controller
     public function details($slug)
     {
         $produt = Produt::where('slug',$slug)->first();
+
+        Gate::authorize('ver_produto',$produt);
         return view('site.details',compact('produt'));
     }
 
