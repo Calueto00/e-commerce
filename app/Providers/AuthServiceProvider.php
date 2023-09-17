@@ -25,7 +25,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Gate::fine('ver_produto',function(User $user,Produt $produt){
+        Gate::define('ver_produto',function(User $user,Produt $produt){
                 return $user->id ==  $produt->id_user;
         });
     }

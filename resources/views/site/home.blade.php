@@ -9,9 +9,13 @@
                 <div class="card">
                     <div class="card-image">
                     <img src="{{$product->image}}">
-                    <a href="{{route('details',$product->slug)}}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons"><span class="material-icons">
-                        visibility
-                        </span></i></a>
+
+                @can('ver_produto',$product)
+                     <a href="{{route('details',$product->slug)}}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons"><span class="material-icons">
+                    visibility
+                    </span></i></a>
+                @endcan
+
                     </div>
                     <div class="card-content">
                         <span class="card-title">{{Str::limit($product->name,20)}}</span>
