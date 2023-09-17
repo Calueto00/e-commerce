@@ -29,4 +29,8 @@ class LoginController extends Controller
         $request->session()->regenerateToken();
         return redirect(route('site.index'));
     }
+
+    public function create(){
+        return view('login.create');
+    }
 }

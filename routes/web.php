@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::resource('produtos',ProdutController::class);
+Route::resource('users',UserController::class);
 
 Route::get('/',[SiteController::class,'index'])->name('site.index');
 Route::get('/produto/{slug}',[SiteController::class,'details'])->name('details');
@@ -20,6 +21,7 @@ Route::get('/categoria/{id}',[SiteController::class,'category'])->name('site.cat
 Route::view('/login','login.form')->name('login.form');
 Route::post('/auth',[LoginController::class,'auth'])->name('login.auth');
 Route::get('/logout',[LoginController::class,'logout'])->name('login.logout');
+Route::get('/register',[LoginController::class,'create'])->name('login.create');
 
 Route::get('/admin/dashboard',[DashboardController::class,'index'])->name('admin.dashboard')->middleware(['auth','checkemail']);
 
